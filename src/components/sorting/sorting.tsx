@@ -5,33 +5,29 @@ type SortingProps = {
   onChangeLevel: (event: ChangeEvent<HTMLSelectElement>) => void;
   onChangeType: (event: ChangeEvent<HTMLSelectElement>) => void;
   onChangeNation: (event: ChangeEvent<HTMLSelectElement>) => void;
-  currentSortLevel: number;
+  currentSortLevel: string;
   currentSortNation: string;
   currentSortType: string;
 }
-/* currencyList: string[];
-  selectedCurrency: string;
-  onChangeCurrency: (event: ChangeEvent<HTMLSelectElement>) => void;
-  onChangeValue: (event: ChangeEvent<HTMLInputElement>) => void;
-  amount: number; */
+
 const Sorting = ({ onChangeLevel, onChangeType, onChangeNation, currentSortLevel, currentSortNation, currentSortType }: SortingProps): JSX.Element => {
   return (
     <div className="sorting-container">
-      <select name="level" value={currentSortLevel} id="" onChange={onChangeLevel}>
+      <select name="level" value={currentSortLevel} onChange={onChangeLevel}>
         {LEVELS.map((level) => {
           return (
             <option value={level}>{level}</option>
           )
         })}
       </select>
-      <select name="nation" value={currentSortNation} id="" onChange={onChangeNation}>
+      <select name="nation" value={currentSortNation} onChange={onChangeNation}>
         {NATIONS.map((nation) => {
           return (
             <option value={nation}>{nation}</option>
           )
         })}
       </select>
-      <select name="class" value={currentSortType} id="" onChange={onChangeType}>
+      <select name="class" value={currentSortType} onChange={onChangeType}>
         {TYPES.map((type) => {
           return (
             <option value={type}>{type}</option>

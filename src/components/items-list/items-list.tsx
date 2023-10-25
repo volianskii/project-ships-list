@@ -5,7 +5,7 @@ import { Vehicle } from '../../../types/items';
 import { getShipsQuery } from '../../query/getShipsQuery';
 
 type ItemsListProps = {
-  sortLevel: number;
+  sortLevel: string;
   sortType: string;
   sortNation: string;
 }
@@ -14,11 +14,11 @@ const ItemsList = ({ sortLevel, sortType, sortNation }: ItemsListProps): JSX.Ele
   const { data, loading } = useQuery(getShipsQuery);
   const [shipList, setList] = useState<Vehicle[]>([]);
   console.log(shipList);
-  const sortedByLevel = shipList.filter((ship) => ship.level === sortLevel);
+  const sortedByLevel = sortLevel !== 'All' ? shipList.filter((ship) => ship.level === Number(sortLevel)) : shipList;
   console.log(sortedByLevel);
-  const sortedByNation = sortNation !== "All" ? sortedByLevel.filter((ship) => ship.nation.title === sortNation) : sortedByLevel;
+  const sortedByNation = sortNation !== 'All' ? sortedByLevel.filter((ship) => ship.nation.title === sortNation) : sortedByLevel;
   console.log(sortedByNation);
-  const sortedByType = sortType !== "All" ? sortedByNation.filter((ship) => ship.type.title === sortType) : sortedByNation;
+  const sortedByType = sortType !== 'All' ? sortedByNation.filter((ship) => ship.type.title === sortType) : sortedByNation;
 
   useEffect(() => {
     if (!loading) {
