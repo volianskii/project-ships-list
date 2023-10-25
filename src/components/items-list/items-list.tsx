@@ -16,9 +16,9 @@ const ItemsList = ({ sortLevel, sortType, sortNation }: ItemsListProps): JSX.Ele
   console.log(shipList);
   const sortedByLevel = shipList.filter((ship) => ship.level === sortLevel);
   console.log(sortedByLevel);
-  const sortedByNation = sortedByLevel.filter((ship) => ship.nation.title === sortNation);
+  const sortedByNation = sortNation !== "All" ? sortedByLevel.filter((ship) => ship.nation.title === sortNation) : sortedByLevel;
   console.log(sortedByNation);
-  const sortedByType = sortedByNation.filter((ship) => ship.type.title === sortType);
+  const sortedByType = sortType !== "All" ? sortedByNation.filter((ship) => ship.type.title === sortType) : sortedByNation;
 
   useEffect(() => {
     if (!loading) {
