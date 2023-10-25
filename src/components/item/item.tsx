@@ -8,13 +8,21 @@ type ItemProps = {
 const Item = ({ vehicle }: ItemProps): JSX.Element => {
   return (
     <div className='item-container'>
-      <p>{vehicle.title}</p>
-      <p>Class: {vehicle.type.title}</p>
-      <img src={vehicle.type.icons.default} alt="type-icon" />
-      <p>Nation: {vehicle.nation.title}</p>
-      <p>Level: {vehicle.level}</p>
-      <img src={vehicle.icons.medium} alt="ship-picture" />
-      <p>{vehicle.description}</p>
+      <div className='class-level-container'>
+        <img src={vehicle.type.icons.default} alt="type-icon" />
+        <p>{vehicle.level}</p>
+      </div>
+      <div className='image-container'>
+        <img src={vehicle.icons.medium} alt="ship-picture" />
+      </div>
+      <div className='title-container'>
+        <p>{vehicle.title}</p>
+      </div>
+      <div className='additional-info'>
+        <p>Class: {vehicle.type.title}</p>
+        <p>Nation: {vehicle.nation.title}</p>
+        <p>{vehicle.description}</p>
+      </div>
     </div>
   )
 }

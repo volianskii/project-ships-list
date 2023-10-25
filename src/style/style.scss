@@ -12,8 +12,27 @@
 
 .item-container {
   background-color: rgba(85, 124, 139, 0.48);
+  padding: 15px;
 }
 
 body {
   background-color: rgb(54, 96, 111);
+}
+
+.class-level-container {
+  display: flex;
+  align-items: center;
+}
+
+.title-container {
+  text-align: end;
+}
+
+.class-level-container,
+.title-container {
+  font-size: 30px;
+  
+  & p {
+    margin: 0;
+  }
 }
