@@ -3,9 +3,11 @@ import { Vehicle } from '../../../types/items';
 
 type ItemProps = {
   vehicle: Vehicle;
+  setActive: (status: boolean) => void;
+  setDescription: (description: string) => void;
 }
 
-const Item = ({ vehicle }: ItemProps): JSX.Element => {
+const Item = ({ vehicle, setActive, setDescription }: ItemProps): JSX.Element => {
   return (
     <div className='item-container'>
       <div className='class-level-container'>
@@ -19,9 +21,9 @@ const Item = ({ vehicle }: ItemProps): JSX.Element => {
         <p>{vehicle.title}</p>
       </div>
       <div className='additional-info'>
-        <p>Class: {vehicle.type.title}</p>
-        <p>Nation: {vehicle.nation.title}</p>
-        <p>{vehicle.description}</p>
+        <p><span>Class:</span> {vehicle.type.title}</p>
+        <p><span>Nation:</span> {vehicle.nation.title}</p>
+        <button onClick={() => { setActive(true); setDescription(vehicle.description) }}>Description</button>
       </div>
     </div>
   )

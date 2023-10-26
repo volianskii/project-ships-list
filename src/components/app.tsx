@@ -2,16 +2,19 @@ import { useState } from 'react';
 import '../style/style.scss';
 import ItemsList from './items-list/items-list';
 import Sorting from './sorting/sorting';
+import Modal from './modal/modal';
 
 export const App = () => {
   const [sortNation, setSortNation] = useState('All');
   const [sortType, setSortType] = useState('All');
   const [sortLevel, setSortLevel] = useState('All');
+  const [modalActive, setModalActive] = useState(false);
+  const [modalDescription, setModalDescription] = useState<string>('');
   console.log(sortLevel);
   console.log(sortType);
   console.log(sortNation);
   return (
-    <div>
+    <div className='main-container'>
       <Sorting
         onChangeLevel={(event) => setSortLevel(event.target.value)}
         currentSortLevel={sortLevel}
@@ -19,7 +22,8 @@ export const App = () => {
         currentSortNation={sortNation}
         onChangeType={(event) => setSortType(event.target.value)}
         currentSortType={sortType} />
-      <ItemsList sortLevel={sortLevel} sortType={sortType} sortNation={sortNation} />
+      <ItemsList sortLevel={sortLevel} sortType={sortType} sortNation={sortNation} setActive={setModalActive} setDescription={setModalDescription} />
+      <Modal active={modalActive} description={modalDescription} setActive={setModalActive} />
     </div>
   )
 }

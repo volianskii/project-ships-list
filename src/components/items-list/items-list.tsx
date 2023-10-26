@@ -8,9 +8,11 @@ type ItemsListProps = {
   sortLevel: string;
   sortType: string;
   sortNation: string;
+  setActive: (status: boolean) => void;
+  setDescription: (description: string) => void;
 }
 
-const ItemsList = ({ sortLevel, sortType, sortNation }: ItemsListProps): JSX.Element => {
+const ItemsList = ({ sortLevel, sortType, sortNation, setActive, setDescription }: ItemsListProps): JSX.Element => {
   const { data, loading } = useQuery(getShipsQuery);
   const [shipList, setList] = useState<Vehicle[]>([]);
   console.log(shipList);
@@ -31,7 +33,7 @@ const ItemsList = ({ sortLevel, sortType, sortNation }: ItemsListProps): JSX.Ele
       {sortedByType.map((vehicle, index) => {
         let keyValue = `ship - ${index}`;
         return (
-          <Item vehicle={vehicle} key={keyValue} />
+          <Item vehicle={vehicle} setActive={setActive} setDescription={setDescription} key={keyValue} />
         );
       })}
     </div>
