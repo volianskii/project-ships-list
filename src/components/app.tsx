@@ -10,9 +10,7 @@ export const App = () => {
   const [sortLevel, setSortLevel] = useState('All');
   const [modalActive, setModalActive] = useState(false);
   const [modalDescription, setModalDescription] = useState<string>('');
-  console.log(sortLevel);
-  console.log(sortType);
-  console.log(sortNation);
+
   return (
     <div className='main-container'>
       <Sorting

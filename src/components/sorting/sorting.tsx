@@ -17,9 +17,10 @@ const Sorting = ({ onChangeLevel, onChangeType, onChangeNation, currentSortLevel
         <label htmlFor="level">Level: </label>
         <select id="level" name="level" value={currentSortLevel} onChange={onChangeLevel}>
           <option hidden>Выбор уровня</option>
-          {LEVELS.map((level) => {
+          {LEVELS.map((level, index) => {
+            const keyValue = `level-${index}`;
             return (
-              <option value={level}>{level}</option>
+              <option value={level} key={keyValue}>{level}</option>
             )
           })}
         </select>
@@ -27,9 +28,10 @@ const Sorting = ({ onChangeLevel, onChangeType, onChangeNation, currentSortLevel
       <div>
         <label htmlFor="level">Nation: </label>
         <select name="nation" value={currentSortNation} onChange={onChangeNation}>
-          {NATIONS.map((nation) => {
+          {NATIONS.map((nation, index) => {
+            const keyValue = `nation-${index}`;
             return (
-              <option value={nation}>{nation}</option>
+              <option value={nation} key={keyValue}>{nation}</option>
             )
           })}
         </select>
@@ -37,9 +39,10 @@ const Sorting = ({ onChangeLevel, onChangeType, onChangeNation, currentSortLevel
       <div>
         <label htmlFor="level">Type: </label>
         <select name="class" value={currentSortType} onChange={onChangeType}>
-          {TYPES.map((type) => {
+          {TYPES.map((type, index) => {
+            const keyValue = `type-${index}`;
             return (
-              <option value={type}>{type}</option>
+              <option value={type} key={keyValue}>{type}</option>
             )
           })}
         </select>

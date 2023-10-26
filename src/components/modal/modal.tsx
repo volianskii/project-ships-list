@@ -1,5 +1,3 @@
-import { ChangeEvent } from "react";
-
 type ModalProps = {
   active: boolean;
   description: string;
