@@ -1,5 +1,5 @@
 $basic-font: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+$small-font: 10px;
 
 .main-container{
   display: flex;
@@ -107,6 +107,33 @@ body {
   & label {
     color: white;
     font-size: 20px;
+  }
+  & select {
+    background-color: rgba(85, 124, 139, 0.48);
+    border-radius: 10px;
+    & option {
+      background-color: rgba(85, 124, 139, 0.48);
+      color: black;
+    }
+  }
+  
+}
+
+.empty-list-container {
+  width: 40vw;
+  height: 40vh;
+  text-align: center;
+
+  & img {
+    width: 100%;
+  }
+
+  & h1 {
+    color: white;
+  }
+
+  & a {
+    font-size: 10px;
   }
 }
 
